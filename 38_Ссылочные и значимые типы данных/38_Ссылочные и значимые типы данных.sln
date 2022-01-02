@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "38_Ссылочные и значимые типы данных", "38_Ссылочные и значимые типы данных\38_Ссылочные и значимые типы данных.csproj", "{FEFE4A4F-0397-46B0-B0C7-9BF30E75D127}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEFE4A4F-0397-46B0-B0C7-9BF30E75D127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEFE4A4F-0397-46B0-B0C7-9BF30E75D127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEFE4A4F-0397-46B0-B0C7-9BF30E75D127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEFE4A4F-0397-46B0-B0C7-9BF30E75D127}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {566B30CA-3CB1-4571-A7A7-8AAD92C2D4B3}
+	EndGlobalSection
+EndGlobal
