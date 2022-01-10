@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Игра_словомеска
 {
-	internal class Game
+    public static class Game
     {
 		// Методы
-		static string enterAction()
+		public static string enterAction()
 		{
 			string action = "";
 
@@ -28,7 +28,7 @@ namespace Игра_словомеска
 				}
 			}
 		}
-		static void showGameRules()
+		public static void showGameRules()
 		{
 			Console.WriteLine("\t\t Правила игры:");
 			Console.WriteLine("Компьютер говорит вам слово, буквы которого перемешались.");
@@ -45,7 +45,7 @@ namespace Игра_словомеска
 			Console.Write("\n\n");
 		}
 
-		static void startLevel()
+		public static void startLevel()
 		{
 			Console.Clear();
 
@@ -64,58 +64,58 @@ namespace Игра_словомеска
 
 			Console.WriteLine("\t\tИгра началась!");
 
-            for (int i = 0; i < COUNT_OF_WORDS; i++)
-            {
-                string playerAnswer;
-                string playerQuestion = generateQuestion(words[i]);
+			for (int i = 0; i < COUNT_OF_WORDS; i++)
+			{
+				string playerAnswer;
+				string playerQuestion = generateQuestion(words[i]);
 
-                Console.WriteLine("\nВы отгадываете " + (i + 1) + " слово из " + COUNT_OF_WORDS);
-                Console.WriteLine("Загаданное слово: " + playerQuestion);
-                Console.WriteLine("Это слово: ");
+				Console.WriteLine("\nВы отгадываете " + (i + 1) + " слово из " + COUNT_OF_WORDS);
+				Console.WriteLine("Загаданное слово: " + playerQuestion);
+				Console.WriteLine("Это слово: ");
 
-                playerAnswer = Console.ReadLine();
+				playerAnswer = Console.ReadLine();
 
-                if (playerAnswer == "подсказка")
-                {
-                    if (playerHints != 0)
-                    {
-                        string hint = generateHint(words[i]);
-                        useHint(playerHints, playerQuestion, hint);
-                        playerAnswer = Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Количество ваших подсказок = 0!");
-                        Console.WriteLine("Загаданное слово: " + playerQuestion);
-                        Console.Write("Это слово: ");
-                        playerAnswer = Console.ReadLine();
-                    }
-                }
-                if (playerAnswer == words[i])
-                {
-                    Console.WriteLine("Верно!");
-                }
-                else
-                {
-                    Console.Write("\n");
-                    Console.WriteLine("Вы ошиблись!");
-                    Console.WriteLine("Правильный ответ: " + words[i]);
-                    Console.WriteLine("Количество ваших жизней = " + --playerLives);
+				if (playerAnswer == "подсказка")
+				{
+					if (playerHints != 0)
+					{
+						string hint = generateHint(words[i]);
+						useHint(playerHints, playerQuestion, hint);
+						playerAnswer = Console.ReadLine();
+					}
+					else
+					{
+						Console.WriteLine("Количество ваших подсказок = 0!");
+						Console.WriteLine("Загаданное слово: " + playerQuestion);
+						Console.Write("Это слово: ");
+						playerAnswer = Console.ReadLine();
+					}
+				}
+				if (playerAnswer == words[i])
+				{
+					Console.WriteLine("Верно!");
+				}
+				else
+				{
+					Console.Write("\n");
+					Console.WriteLine("Вы ошиблись!");
+					Console.WriteLine("Правильный ответ: " + words[i]);
+					Console.WriteLine("Количество ваших жизней = " + --playerLives);
 
-                    if (playerLives == 0)
-                    {
-                        Console.WriteLine("К сожалению вы проиграли! У вас обязательно получится в следующий раз.");
-                        break;
-                    }
-                }
-            }
-            if (playerLives > 0)
-            {
-                Console.WriteLine("\nВы победили! Поздравляем!");
-            }
-        }
+					if (playerLives == 0)
+					{
+						Console.WriteLine("К сожалению вы проиграли! У вас обязательно получится в следующий раз.");
+						break;
+					}
+				}
+			}
+			if (playerLives > 0)
+			{
+				Console.WriteLine("\nВы победили! Поздравляем!");
+			}
+		}
 
-		static string generateQuestion(string word) //TODO: как передавать константные параметры в C#?
+		public static string generateQuestion(string word) //TODO: как передавать константные параметры в C#?
 		{
 			string playerQuestion = word;
 			while (playerQuestion == word)
@@ -127,7 +127,7 @@ namespace Игра_словомеска
 			return playerQuestion;
 		}
 
-		static string generateHint(string word) //TODO: как передавать константные параметры в C#?
+		public static string generateHint(string word) //TODO: как передавать константные параметры в C#?
 		{
 			string hint = word;
 			// Показать половину слова как подсказку
@@ -138,31 +138,12 @@ namespace Игра_словомеска
 			return hint;
 		}
 
-		static void useHint(short playerHints, string playerQuestion, string hint)
+		public static void useHint(short playerHints, string playerQuestion, string hint)
 		{
 			Console.WriteLine("Теперь количество ваших подсказок = " + --playerHints + "\n");
 			Console.WriteLine("Загаданное слово: " + playerQuestion);
 			Console.WriteLine("Подсказка: " + hint);
 			Console.Write("Это слово: ");
 		}
-
-	// Основная программа
-	static void Main(string[] args)
-        {
-            Console.WriteLine("\t\t\t\t\t\t Игра Словомеска");
-
-            int gameAction = int.Parse(enterAction());
-
-            if (gameAction == 1)
-            {
-				showGameRules();
-				Console.WriteLine("Для продолжения нажмите Enter");
-				Console.ReadLine();
-            }
-
-			// Запуск игры
-
-			startLevel();
-		}
-    }
+	}
 }
